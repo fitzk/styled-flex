@@ -77,7 +77,7 @@ my/components.js
     background-color: black;
   `;
   
-  export { MainContainer}
+  export { MainContainer }
   
 ```
 my/views/app.js
