@@ -1,7 +1,7 @@
 # styled-flex
-Styled FlexBox Components 
+Styled FlexBox Components
 
-Styled components, for flexbox powered container components. 
+Styled components, for flexbox powered container components.
 
 ## NPM
 ```
@@ -10,11 +10,11 @@ npm install --save styled-flex
 
 ## Components
 
-### Display
+### Flex
 ```
-  <Display row alignCenter justifyStart>
+  <Flex row alignCenter justifyStart>
     ...
-  </Display>
+  </Flex>
 ```
 
 ```
@@ -72,26 +72,26 @@ my/components.js
 
   import { Row, Column } from "styled-flex"
   import styled from "styled-components"
-  
+
   const MainContainer = styled(Column)`
     background-color: black;
   `;
-  
+
   export { MainContainer }
-  
+
 ```
 my/views/app.js
 ```
 
   import { MainContainer } from "my/components"
-  
+
    export class App extends Component {
     ...
       render() {
           return <MainContainer flexGrow="2" alignStart>
-                    { children } 
+                    { children }
                  </MainContainer>  
          }
     }
-             
+
 ```

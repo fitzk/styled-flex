@@ -1,51 +1,45 @@
 import path from "path"
 
-const PATHS = {
-	src: path.join(__dirname, "/"),
-}
-
 const reactExternal = {
 	root: "React",
-	commonjs2: "react",
 	commonjs: "react",
+	commonjs2:"react",
 	amd: "react"
 };
-
 const styledComponentsExternal = {
-	root: "StyledComponents",
-	commonjs2: "styled-components",
 	commonjs: "styled-components",
+	commonjs2: "styled-components/lib/index.js",
 	amd: "styled-components"
 };
+
+const babel = {
+				test: /.js$/,
+				loader: "babel-loader",
+				exclude: /node_modules/,
+				options: {
+					babelrc: false,
+					cacheDirectory: true,
+					presets: [ [ "latest", { modules: false } ], "react", "stage-1" ],
+					plugins: [ "transform-object-rest-spread" ]
+				}
+			}
 
 export default () => ({
 		entry: "./index.js",
 		externals: {
-			"react": reactExternal,
-			"styled-components": styledComponentsExternal,
+			"react":  reactExternal,
+			"styled-components": styledComponentsExternal
 		},
 		output: {
-			path: path.join(__dirname, "dist"),
-			filename: "[name].js"
+			filename: "styled-flex.js",
+			path: "dist",
+			libraryTarget: "umd",
+			library: "StyledFlex" // global variable
 		},
 		resolve: {
-			extensions: [
-				"*",
-				".js"
-			],
+			extensions: [ "*", ".js" ],
 		},
 	module: {
-		rules: [{
-			test: /\.(js|jsx)$/,
-			loader: "babel-loader",
-			exclude: /node_modules/,
-			include: PATHS.src,
-			options: {
-				// the babelrc in root is used to traspile only this config
-				babelrc: false,
-				// project settings are defined here
-				presets: [ [ "env", { loose: true, modules: false } ], "react" ]
-			}
-		}]
+		rules: [ babel ]
 	}
 })

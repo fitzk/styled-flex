@@ -1,9 +1,6 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
-const flex = css`
-  display: flex;
-`
 const align = ({
 	alignCenter,
 	alignStart,
@@ -48,26 +45,26 @@ const wrap = ({
   "wrap"
 };
 
-const orientation = styled.div`
+const Base = styled.div`
+  display: flex;
 	align-items: ${props => align(props)};
 	justify-content: ${props => justify(props)};
   ${props => `flex-wrap: ${wrap(props)}`};
   ${props => props.flexBasis && `flex-basis: ${props.flexBasis}`};
   ${props => props.flexGrow && `flex-basis: ${props.flexGrow}`};
   ${props => props.flexShrink && `flex-shrink: ${props.flexShrink}`};
-`
+`;
 
-export const Display = styled(orientation)`
-  ${flex}
+const Flex = styled(Base)`
   flex-direction: ${props => props.row && "row" || "column" };
 `;
 
-export const Row = styled(orientation)`
-	${flex}
+const Row = styled(Base)`
   flex-direction: row;
 `;
 
-export const Column = styled(orientation)`
-	${flex}
+const Column = styled(Base)`
   flex-direction: column;
 `;
+
+export { Base, Flex, Row, Column }
