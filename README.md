@@ -1,5 +1,5 @@
 # styled-flex
-Styled FlexBox Components
+Styled Flexbox Components
 
 Styled components, for flexbox powered container components.
 
