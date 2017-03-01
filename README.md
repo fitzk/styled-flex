@@ -11,27 +11,27 @@ npm install --save styled-flex
 ## Components
 
 ### Flex
-```
+``` js
   <Flex row alignCenter justifyStart>
     ...
   </Flex>
 ```
 
-```
+``` js
   <Display column alignStart justifySpaceAround width={"50vw"}>
     ...
   </Display>
 ```
 
 ### Row
-```
+``` js
   <Row alignCenter justifyStart width={"100vw"}>
     ...
   </Row>
 ```
 
 ### Column
-```
+``` js
 <Column alignCenter justifyStart flexBasis="0">
   ...
 </Column>
@@ -43,7 +43,7 @@ npm install --save styled-flex
 Use with [react responsive](https://github.com/contra/react-responsive)
 for conditional layouts
 
-```
+``` js
   import { Row, Column } from "styled-flex"
   import MediaQuery from "react-responsive"
 
@@ -68,7 +68,7 @@ for conditional layouts
 ### As A Base Component
 
 my/components.js
-```
+``` js
 
   import { Row, Column } from "styled-flex"
   import styled from "styled-components"
@@ -81,7 +81,7 @@ my/components.js
 
 ```
 my/views/app.js
-```
+``` js
 
   import { MainContainer } from "my/components"
 
